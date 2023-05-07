@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:gravity="top"
-        android:hint=" Contact Name "
+        android:hint="Contact Name"
         android:inputType="textCapSentences|textMultiLine"
         android:lines="4"
         android:textSize="16sp" />
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:gravity="top"
-        android:hint=" Contact Email "
+        android:hint="Contact Email"
         android:inputType="textCapSentences|textMultiLine"
         android:lines="4"
         android:textSize="16sp" />
