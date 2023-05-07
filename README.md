@@ -2,7 +2,12 @@
 
 The concepts that I applied on Contacts Manager Mobile App are in the following:
 
-📌Adapter Class
+📌Adapter Class 
+
+
+
+
+
 📌Entity Class
 📌Database Helper Class
 📌ROOM Dependency
