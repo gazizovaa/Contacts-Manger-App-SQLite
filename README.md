@@ -47,3 +47,6 @@ The concepts that I applied on Contacts Manager Mobile App are in the following:
 
 
 ![screenshot_2](https://user-images.githubusercontent.com/78263828/236707415-8e986f7f-bc75-4794-9e78-7dae792ba3ce.png)
+
+![screenshot_3](https://user-images.githubusercontent.com/78263828/236707484-9e644792-fe63-48fa-bd6d-b95001e352d1.png)
+
