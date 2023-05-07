@@ -1,5 +1,6 @@
 package com.example.contactsmangerappsqlite.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +58,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int positions) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder,@SuppressLint("RecyclerView") int positions) {
         final Contact contact = contactsList.get(positions);
 
         holder.name.setText(contact.getName());

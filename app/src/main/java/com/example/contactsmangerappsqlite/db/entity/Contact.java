@@ -61,10 +61,10 @@ public class Contact {
 
     //SQL query - create the table
     public static final String CREATE_TABLE =
-            "CREATE TABLE" + TABLE_NAME + "("
-            + COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COLUMN_NAME + " TEXT, "
-            + COLUMN_EMAIL + " DATETIME DEFAULT CURRENT_TIMESTAMP, "
-            + COLUMN_PHONE_NUMBER + " CURRENT_PHONE_NUMBER"
+            "CREATE TABLE " + TABLE_NAME + "("
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + COLUMN_NAME + " TEXT,"
+            + COLUMN_EMAIL + " DATETIME DEFAULT CURRENT_TIMESTAMP,"
+            + COLUMN_PHONE_NUMBER + " CURRENT_PHONE_NUMB"
             + ")";
 }
