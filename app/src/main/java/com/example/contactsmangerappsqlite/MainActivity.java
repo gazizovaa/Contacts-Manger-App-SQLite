@@ -52,10 +52,13 @@ public class MainActivity extends AppCompatActivity {
         //RecyclerView
         recyclerView = findViewById(R.id.recycler_view_contacts);
         //Database
-        contactsDatabase = Room.databaseBuilder();
+        contactsDatabase = Room.databaseBuilder(
+                getApplicationContext(),
+                ContactsDatabase.class,
+                "ContactsDB").allowMainThreadQueries().build();
 
-        //Contacts list
-        contactArrayList.addAll(db.getAllContacts());
+        //Displaying all contacts list
+        contactArrayList.addAll(contactsDatabase.getContactDAO().getContact());
 
         contactsAdapter = new ContactsAdapter(this,contactArrayList,MainActivity.this);
 
@@ -145,20 +148,21 @@ public class MainActivity extends AppCompatActivity {
         contact.setEmail(email);
         contact.setPhoneNumb(phoneNumb);
 
-        db.updateContact(contact);
+        contactsDatabase.getContactDAO().updateContact(contact);
         contactArrayList.set(positions,contact);
         contactsAdapter.notifyDataSetChanged();
     }
 
     private void DeleteContact(Contact contact, int positions) {
         contactArrayList.remove(positions);
-        db.deleteContact(contact);
+        contactsDatabase.getContactDAO().deleteContact(contact);
         contactsAdapter.notifyDataSetChanged();
     }
 
     private void CreateContact(String name,String email,String phoneNumb){
-        long id = db.insertContact(name,email,phoneNumb);
-        Contact contact = db.getContact(id);
+        long id = contactsDatabase.getContactDAO()
+                .addContact(new Contact(0,name,email,phoneNumb));
+        Contact contact = contactsDatabase.getContactDAO().getContact(id);
 
         if(contact != null){
             contactArrayList.add(0,contact);
