@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ import android.widget.Toast;
 
 
 import com.example.contactsmangerappsqlite.adapter.ContactsAdapter;
-import com.example.contactsmangerappsqlite.db.DatabaseHelper;
+import com.example.contactsmangerappsqlite.db.ContactsDatabase;
 import com.example.contactsmangerappsqlite.db.entity.Contact;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ContactsAdapter contactsAdapter;
     private ArrayList<Contact> contactArrayList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private DatabaseHelper db;
+    private ContactsDatabase contactsDatabase;
 
 
     @Override
@@ -50,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
         //RecyclerView
         recyclerView = findViewById(R.id.recycler_view_contacts);
-        db = new DatabaseHelper(this);
+        //Database
+        contactsDatabase = Room.databaseBuilder();
 
         //Contacts list
         contactArrayList.addAll(db.getAllContacts());

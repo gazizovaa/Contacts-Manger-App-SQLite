@@ -1,20 +1,25 @@
 package com.example.contactsmangerappsqlite.db.entity;
 
-public class Contact {
-    //Constants for Database
-    public static final String TABLE_NAME = "contacts";
-    public static final String COLUMN_ID = "contact_ID";
-    public static final String COLUMN_NAME = "contact_name";
-    public static final String COLUMN_EMAIL = "contact_email";
-    public static final String COLUMN_PHONE_NUMBER = "contact_phoneNumb";
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
+@Entity(tableName = "contacts")
+public class Contact {
     //Variables
+    @ColumnInfo(name = "contact_ID")
+    @PrimaryKey(autoGenerate = true) //this will increase id by 1 automatically
     private int id;
+    @ColumnInfo(name = "contact_name")
     private String name;
+    @ColumnInfo(name = "contact_email")
     private String email;
+    @ColumnInfo(name = "contact_phoneNumb")
     private String phoneNumb;
 
     //Constructor
+    @Ignore
     public Contact(){
 
     }
@@ -60,11 +65,11 @@ public class Contact {
     }
 
     //SQL query - create the table
-    public static final String CREATE_TABLE =
-            "CREATE TABLE " + TABLE_NAME + "("
-            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + COLUMN_NAME + " TEXT,"
-            + COLUMN_EMAIL + " DATETIME DEFAULT CURRENT_TIMESTAMP,"
-            + COLUMN_PHONE_NUMBER + " CURRENT_PHONE_NUMB"
-            + ")";
+//    public static final String CREATE_TABLE =
+//            "CREATE TABLE " + TABLE_NAME + "("
+//            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+//            + COLUMN_NAME + " TEXT,"
+//            + COLUMN_EMAIL + " DATETIME DEFAULT CURRENT_TIMESTAMP,"
+//            + COLUMN_PHONE_NUMBER + " CURRENT_PHONE_NUMB"
+//            + ")";
 }
